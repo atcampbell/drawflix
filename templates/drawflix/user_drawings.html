@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %} - Your Drawings {% endblock %}
+
+{% block body_block %}
+
+<br /><br />
+
+{% if user_drawings %}
+    <ul class="nav nav-sidebar">
+
+    {% for d in user_drawings %}
+        <img src="{{ d.image }}">
+      </img>
+  </br>
+    <li>
+        <strong class="like_count" id="{{d.id}}">{{ d.likes }}</strong> likes
+
+          <p>{{d.film}}</p>
+
+    {% endfor %}
+
+
+{% else %}
+    <li> <strong >There are no drawings present.</strong></li>
+
+    </ul>
+{% endif %}
+
+
+{% endblock %}
